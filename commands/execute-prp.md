@@ -6,12 +6,14 @@ Implement a feature using using the PRP file.
 
 ## Execution Process
 
+**CRITICAL:** Using `$CODEBASE_PATH` environment variable to write code
+
 1. **Load PRP**
    - Read the specified PRP file
    - Understand all context and requirements
    - Follow all instructions in the PRP and extend the research if needed
    - Ensure you have all needed context to implement the PRP fully
-   - Do more web searches and codebase exploration as needed
+   - Do more web searches and exploration of `$CODEBASE_PATH` as needed
 
 2. **ULTRATHINK**
    - Think hard before you execute the plan. Create a comprehensive plan addressing all requirements.

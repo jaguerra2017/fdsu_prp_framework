@@ -27,15 +27,15 @@ prps/
 ├── ⭐ features/           # Feature implementation PRPs
 ├── 📝 prds/              # Product Requirement Documents
 ├── 📄 templates/          # Base PRP templates
-└── 🔗 codebase/          # FDSU codebase (git submodule)
+└── config.env.example    # Environment configuration template
 ```
 
 ## 🚀 **Quick Start**
 
 ### Prerequisites
-- Git with submodule support
+- Git
 - Node.js and npm (for development)
-- Access to FDSU codebase (private repository)
+- Access to target codebase (any repository you want to analyze)
 
 ### Installation
 ```bash
@@ -43,13 +43,89 @@ prps/
 git clone https://github.com/jaguerra2017/fdsu_prp_framework.git
 cd fdsu_prp_framework/prps
 
-# Initialize and update submodules
-git submodule init
-git submodule update
+# Configure your codebase path
+cp config.env.example config.env
+# Edit config.env and set CODEBASE_PATH=/path/to/your/codebase
 
-# Verify setup
-ls -la codebase/  # Should show FDSU codebase files
+# Load environment and verify setup
+source config.env
+ls -la $CODEBASE_PATH  # Should show your codebase files
 ```
+
+### Environment Configuration
+
+The PRP Framework uses environment variables to specify the codebase path, making it flexible to work with any codebase.
+
+#### Quick Setup
+
+1. **Copy the configuration template:**
+   ```bash
+   cp config.env.example config.env
+   ```
+
+2. **Set your codebase path:**
+   Edit `config.env` and set the `CODEBASE_PATH` variable:
+   ```bash
+   CODEBASE_PATH=/path/to/your/project/root
+   ```
+
+3. **Load environment variables:**
+   ```bash
+   # Option 1: Source the file before using PRP commands
+   source config.env
+   
+   # Option 2: Export directly
+   export CODEBASE_PATH="/path/to/your/project/root"
+   
+   # Option 3: Set for single command
+   CODEBASE_PATH="/path/to/your/project/root" cursor apply commands/generate-prp.md
+   ```
+
+#### Environment Variables
+
+- **`CODEBASE_PATH`** (required): Absolute path to the root of the codebase you want to analyze
+- **`DEV_CODEBASE_PATH`** (optional): Alternative path for development environment
+- **`PROD_CODEBASE_PATH`** (optional): Alternative path for production environment
+
+#### Configuration Examples
+
+```bash
+# For a local project
+export CODEBASE_PATH="/Users/username/projects/my-app"
+
+# For a team shared codebase
+export CODEBASE_PATH="/opt/shared/codebase"
+
+# For different environments
+export DEV_CODEBASE_PATH="/Users/username/projects/my-app-dev"
+export PROD_CODEBASE_PATH="/opt/production/my-app"
+```
+
+#### Validation
+
+To verify your setup:
+
+```bash
+# Check if environment variable is set
+echo $CODEBASE_PATH
+
+# Verify the path exists and contains expected files
+ls -la $CODEBASE_PATH
+```
+
+#### Integration with Commands
+
+All PRP commands will automatically use the `CODEBASE_PATH` environment variable:
+
+- `commands/generate-prp.md` will search `$CODEBASE_PATH` instead of `codebase/`
+- `commands/execute-prp.md` will write code to `$CODEBASE_PATH`
+- Pattern analysis will reference files in `$CODEBASE_PATH`
+
+#### Security Notes
+
+- The `config.env` file is git-ignored to prevent accidentally committing sensitive paths
+- Always use absolute paths for better reliability
+- Ensure the path has appropriate read/write permissions for your use case
 
 ## 📋 **Core Components**
 
@@ -153,13 +229,13 @@ Real-world PRP implementations:
 # 4. Implement validation loops
 ```
 
-## 🔗 **Integration with FDSU Codebase**
+## 🔗 **Integration with Target Codebase**
 
-The framework integrates with the FDSU codebase through:
-- **Git Submodule**: `codebase/` contains the complete FDSU repository
-- **Pattern References**: All documentation points to actual FDSU files
+The framework integrates with any target codebase through:
+- **Environment Variables**: `$CODEBASE_PATH` points to your codebase
+- **Pattern References**: All documentation references actual project files
 - **Live Examples**: Real implementations from the production codebase
-- **Validation**: Tests run against actual FDSU structure
+- **Validation**: Tests run against actual project structure
 
 ## 🧪 **Quality Assurance**
 
@@ -193,14 +269,20 @@ Target: 8+ on all metrics
 
 ## 🔄 **Git Workflow**
 
-### Submodule Management
+### Environment Management
 ```bash
-# Update FDSU codebase
-git submodule update --remote codebase
+# Update codebase path
+export CODEBASE_PATH=/path/to/your/updated/codebase
+
+# Verify new path
+echo $CODEBASE_PATH
+ls -la $CODEBASE_PATH
+
+# Update config file
+echo "CODEBASE_PATH=$CODEBASE_PATH" > config.env
 
 # Pull latest PRP framework changes
 git pull origin main
-git submodule update --init --recursive
 ```
 
 ### Development Workflow
@@ -235,7 +317,7 @@ This PRP Framework is inspired by and builds upon the excellent work by **[@Wira
 ## 🔒 **Security & Privacy**
 
 - **Public Repository**: Open source with MIT license
-- **Submodule Access**: Requires FDSU codebase permissions (private)
+- **Codebase Access**: Requires appropriate permissions to target codebase
 - **Git Ignore**: `.claude/` folder excluded from version control  
 - **Access Control**: Team-based development workflow for proprietary components
 

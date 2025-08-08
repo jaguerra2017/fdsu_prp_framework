@@ -15,15 +15,15 @@ Launch these agents concurrently - do not wait for one to complete before starti
 #### Agent 1: Codebase Pattern Analysis
 ```
 Task: Codebase Context Research
-Prompt: Analyze the codebase for patterns relevant to "$ARGUMENTS". Research and identify:
-- Similar features/patterns already implemented in the codebase
+Prompt: Analyze the codebase at $CODEBASE_PATH for patterns relevant to "$ARGUMENTS". Research and identify:
+- Similar features/patterns already implemented in the codebase at $CODEBASE_PATH
 - Files that contain relevant examples or patterns to reference
 - Existing conventions, architectural patterns, and code styles to follow
 - Test patterns and validation approaches used in similar features
 - Integration points and dependencies to consider
 - File structure and organization patterns to mirror
 
-Focus on codebase exploration only - do not write code. Use Glob, Grep, and Read tools extensively. Return a comprehensive analysis of existing patterns with specific file paths and code examples to reference in the PRP.
+Focus on codebase exploration only - do not write code. Use Glob, Grep, and Read tools extensively to explore $CODEBASE_PATH. Return a comprehensive analysis of existing patterns with specific file paths and code examples to reference in the PRP.
 ```
 
 #### Agent 2: External Technical Research
@@ -44,14 +44,14 @@ Focus purely on research - do not write code. Use web search extensively. Return
 ```
 Task: Testing Strategy Research
 Prompt: Research testing and validation approaches for "$ARGUMENTS". Analyze:
-- Test patterns used in the current codebase
+- Test patterns used in the current codebase at $CODEBASE_PATH
 - Unit testing strategies and frameworks
 - Integration testing approaches
 - Validation gates and quality checks
 - Error handling and edge case patterns
 - Performance testing considerations
 
-Research only - no test implementation. Use codebase analysis and web search. Return detailed testing strategy with specific patterns to follow and validation commands to include in the PRP.
+Research only - no test implementation. Use codebase analysis of $CODEBASE_PATH and web search. Return detailed testing strategy with specific patterns to follow and validation commands to include in the PRP.
 ```
 
 #### Agent 4: Documentation & Context Research
@@ -87,7 +87,7 @@ From the research agents, include:
 - Start with pseudocode informed by existing patterns
 - Reference real files and patterns discovered in research
 - Include error handling strategies from similar implementations
-- List tasks in order of completion based on codebase analysis
+- List tasks in order of completion based on codebase analysis of $CODEBASE_PATH
 
 ### PRP Generation Process
 
@@ -107,7 +107,7 @@ Generate a complete PRP including:
 
 ## Why
 - Business value and user impact
-- Integration with existing features (from codebase analysis)
+- Integration with existing features (from codebase analysis of $CODEBASE_PATH)
 - Problems this solves and for whom
 
 ## What
@@ -116,14 +116,14 @@ Generate a complete PRP including:
 ## All Needed Context
 ### Documentation & References
 - url: [Specific URLs from external research]
-- file: [Specific file paths from codebase analysis]
+- file: [Specific file paths from codebase analysis of $CODEBASE_PATH]
 - docfile: [Relevant ai_docs/ files]
 
 ### Current Codebase Context
 [Tree structure and relevant files]
 
 ### Implementation Patterns
-[Specific patterns to follow from codebase analysis]
+[Specific patterns to follow from codebase analysis of $CODEBASE_PATH]
 
 ### Known Gotchas
 [Library quirks and caveats from research]
@@ -143,10 +143,10 @@ Generate a complete PRP including:
 
 ## Validation Loop
 ### Level 1: Syntax & Style
-[Commands specific to this codebase]
+[Commands specific to the codebase at $CODEBASE_PATH]
 
 ### Level 2: Unit Tests
-[Test patterns from codebase analysis]
+[Test patterns from codebase analysis of $CODEBASE_PATH]
 
 ### Level 3: Integration Tests
 [End-to-end validation approach]

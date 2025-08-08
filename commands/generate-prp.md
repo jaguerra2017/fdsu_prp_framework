@@ -6,6 +6,8 @@ Generate a complete PRP for general feature implementation with thorough researc
 
 The AI agent only gets the context you are appending to the PRP and training data. Assuma the AI agent has access to the codebase and the same knowledge cutoff as you, so its important that your research findings are included or referenced in the PRP. The Agent has Websearch capabilities, so pass urls to documentation and examples.
 
+**CRITICAL:** Using `$CODEBASE_PATH` environment variable as the referenced code path
+
 ## Research Process
 1. **MCP Gathering**
    - If provided figma design URLs then connect trough available Figma MCP to get image and code connect map

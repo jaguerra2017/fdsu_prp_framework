@@ -22,23 +22,23 @@ This document provides existing code examples oriented on how UI components and 
 ### Reference Files for Learning
 
 #### Main Component Structure
-- **Reference:** `codebase/site/client/js/itm_report.js`
+- **Reference:** `$CODEBASE_PATH/site/client/js/itm_report.js`
 - **Purpose:** Use this existing code to understand how we build pages with multiple components, either custom or existing in our UI library. This demonstrates the main entry point pattern with Vue instance setup, store integration, and component imports.
 
 #### Main Page View Structure
-- **Reference:** `codebase/codebase/site/views/itmReport/index.php`
+- **Reference:** `$CODEBASE_PATH/$CODEBASE_PATH/site/views/itmReport/index.php`
 - **Purpose:** This is how main page view needs to be built most of the time. Shows proper PHP asset registration, parameter passing, and app container setup.
 
 #### State Management (Store)
-- **Reference:** `codebase/site/client/js/store/itm_report.js`
+- **Reference:** `$CODEBASE_PATH/site/client/js/store/itm_report.js`
 - **Purpose:** Review and understand this file for comprehensive state management patterns including CRUD operations, modal management, form validation, and API integration.
 
 #### Custom Component Example
-- **Reference:** `codebase/codebase/site/client/js/components/itm_report/itm_upsert_modal.vue`
+- **Reference:** `$CODEBASE_PATH/$CODEBASE_PATH/site/client/js/components/itm_report/itm_upsert_modal.vue`
 - **Purpose:** This is a good example of custom component that uses UI library components inside. Demonstrates modal structure, form integration, and component composition.
 
 #### Minimal Custom Styles
-- **Reference:** `codebase/codebase/site/client/css/pages/_itm_report.scss`
+- **Reference:** `$CODEBASE_PATH/$CODEBASE_PATH/site/client/css/pages/_itm_report.scss`
 - **Purpose:** **IMPORTANT** - By reviewing this file, notice that most styles are already inside each UI component, so most of the time just few custom styles are required. This demonstrates the minimal override approach.
 
 ## Table of Contents
@@ -60,7 +60,7 @@ This document provides existing code examples oriented on how UI components and 
 
 ### Standard Module Structure
 ```
-codebase/site/
+$CODEBASE_PATH/site/
 ├── client/
 │   ├── js/
 │   │   ├── {module_name}.js                    # Main entry point
@@ -80,11 +80,11 @@ codebase/site/
 ```
 
 **Example:** ITM Report module structure
-- `codebase/site/client/js/itm_report.js`
-- `codebase/site/client/js/store/itm_report.js`
-- `codebase/codebase/site/client/js/components/itm_report/itm_report_header.js`
-- `codebase/codebase/site/client/js/components/itm_report/itm_table.js`
-- `codebase/codebase/site/client/js/components/itm_report/itm_upsert_modal.vue`
+- `$CODEBASE_PATH/site/client/js/itm_report.js`
+- `$CODEBASE_PATH/site/client/js/store/itm_report.js`
+- `$CODEBASE_PATH/$CODEBASE_PATH/site/client/js/components/itm_report/itm_report_header.js`
+- `$CODEBASE_PATH/$CODEBASE_PATH/site/client/js/components/itm_report/itm_table.js`
+- `$CODEBASE_PATH/$CODEBASE_PATH/site/client/js/components/itm_report/itm_upsert_modal.vue`
 
 ---
 
@@ -92,7 +92,7 @@ codebase/site/
 
 ### Main Module File (`{module_name}.js`)
 
-**Reference Implementation:** `codebase/site/client/js/itm_report.js`
+**Reference Implementation:** `$CODEBASE_PATH/site/client/js/itm_report.js`
 
 **Key Structure Elements:**
 - Vue instance with store integration
@@ -116,7 +116,7 @@ codebase/site/
 
 ### Store Structure (`store/{module_name}.js`)
 
-**Reference Implementation:** `codebase/site/client/js/store/itm_report.js`
+**Reference Implementation:** `$CODEBASE_PATH/site/client/js/store/itm_report.js`
 
 **Key Architecture Elements:**
 - Vuex store with namespaced modules
@@ -155,7 +155,7 @@ codebase/site/
 
 ### Page Header Component (`{module_name}_header.js`)
 
-**Reference Implementation:** `codebase/codebase/site/client/js/components/itm_report/itm_report_header.js`
+**Reference Implementation:** `$CODEBASE_PATH/$CODEBASE_PATH/site/client/js/components/itm_report/itm_report_header.js`
 
 **Key Structure Elements:**
 - FdPageHeader component usage with slot structure
@@ -173,7 +173,7 @@ codebase/site/
 
 ### Table Component (`{module_name}_table.js`)
 
-**Reference Implementation:** `codebase/codebase/site/client/js/components/itm_report/itm_table.js`
+**Reference Implementation:** `$CODEBASE_PATH/$CODEBASE_PATH/site/client/js/components/itm_report/itm_table.js`
 
 **Key Structure Elements:**
 - FdTable component with comprehensive configuration
@@ -213,19 +213,19 @@ codebase/site/
 8. **Internal Scrolling** - Tables and content use `overflow-y: auto` within containers
 
 ### Sidebar Styling:
-**Reference Implementation:** `codebase/codebase/site/client/css/pages/_itm_report.scss` (lines 15-25)
+**Reference Implementation:** `$CODEBASE_PATH/$CODEBASE_PATH/site/client/css/pages/_itm_report.scss` (lines 15-25)
 - Full height sidebar patterns
 - Overflow handling for long content
 - Menu integration within sidebar
 
 ### Grid Usage Examples:
 **Study Implementation:** Look for FdGrid usage patterns in:
-- `codebase/codebase/site/client/js/components/itm_report/itm_upsert_modal.vue` (lines 87-189)
-- `codebase/codebase/site/client/js/components/itm_report/components/itm_new_address_modal.vue` (grid layout examples)
+- `$CODEBASE_PATH/$CODEBASE_PATH/site/client/js/components/itm_report/itm_upsert_modal.vue` (lines 87-189)
+- `$CODEBASE_PATH/$CODEBASE_PATH/site/client/js/components/itm_report/components/itm_new_address_modal.vue` (grid layout examples)
 
 ### Sidebar Navigation Patterns:
 
-**Reference Implementation:** `codebase/codebase/site/client/js/components/itm_notification_setting/itm_notification_setting_section_menu.vue`
+**Reference Implementation:** `$CODEBASE_PATH/$CODEBASE_PATH/site/client/js/components/itm_notification_setting/itm_notification_setting_section_menu.vue`
 
 #### Sidebar Structure Pattern:
 - **Menu Items Definition:** (lines 14-61) - `sectionMenuItems()` computed property
@@ -235,7 +235,7 @@ codebase/site/
 - **Event Cleanup:** (lines 76-77) - Remove event listeners in `beforeDestroy`
 
 #### Sidebar Props Structure (Use Props, NOT Slots):
-**Reference Structure:** `codebase/site/client/js/components/itm_notification_setting/itm_notification_setting_section_menu.vue` (lines 14-61)
+**Reference Structure:** `$CODEBASE_PATH/site/client/js/components/itm_notification_setting/itm_notification_setting_section_menu.vue` (lines 14-61)
 - Study the `sectionMenuItems()` computed property for correct menu item structure
 - Key properties: `id`, `title`, `icon`, `selected`, `disabled`, `hide`, `testId`
 - Use this structure for all sidebar navigation components
@@ -250,7 +250,7 @@ codebase/site/
 ### Tabs Navigation Patterns:
 
 #### FdTabsLine Component Pattern:
-**Reference Implementation:** `codebase/packages/ui-vue/src/components/tabs-line/tabs-line.vue`
+**Reference Implementation:** `$CODEBASE_PATH/packages/ui-vue/src/components/tabs-line/tabs-line.vue`
 - **Options Array:** (lines 14-17) - `options` prop for tab definitions
 - **Active Tab Control:** (lines 18-21) - `activeTab` prop for controlling selection
 - **Change Event:** (lines 113-123) - `@change-tab` emission pattern
@@ -258,14 +258,14 @@ codebase/site/
 - **Navigation Menu:** (lines 22-25, 166-177) - `isNavigationMenu` prop for dropdown behavior
 
 #### FdTabsButtons Component Pattern:
-**Reference Implementation:** `codebase/packages/ui-vue/src/components/tabs-buttons/tabs-buttons.vue`
+**Reference Implementation:** `$CODEBASE_PATH/packages/ui-vue/src/components/tabs-buttons/tabs-buttons.vue`
 - **Options Array:** (lines 17-20) - `options` prop for tab definitions
 - **Size Variants:** (lines 25-31) - `size` prop with small/medium options
 - **Counter Support:** (lines 89-91, 137-142) - Tab counters with `hasCounter()` check
 - **Responsive Scrolling:** (lines 92-106, 146-164) - Horizontal scroll for overflow
 
 #### Tabs Options Structure:
-**Reference Structure:** `codebase/packages/ui-vue/src/components/tabs-line/tabs-line.vue` (lines 61-67)
+**Reference Structure:** `$CODEBASE_PATH/packages/ui-vue/src/components/tabs-line/tabs-line.vue` (lines 61-67)
 - Study the `menuOptions()` computed property for correct tab option structure
 - Key properties: `id`, `label`, `icon`, `disabled`, `testId`
 - **FdTabsButtons specific:** `counter` (lines 89-91, 137-142)
@@ -297,24 +297,24 @@ codebase/site/
 ### Action Management:
 
 #### Multiple Actions Pattern (Actions Prop)
-**Reference Implementation:** `codebase/site/client/js/components/itm_notification_setting/components/itm_reference_documentation.vue`
+**Reference Implementation:** `$CODEBASE_PATH/site/client/js/components/itm_notification_setting/components/itm_reference_documentation.vue`
 - **Actions Definition:** (lines 44-64) - getMultipleActions() method pattern
 - **Table Integration:** (line 138) - `v-bind:actions="actions"` prop usage
 - **Use When:** All actions are uniform buttons that can be handled in a single action menu
 
 #### Header Component Pattern (Template Slot)
-**Reference Implementation:** `codebase/site/client/js/components/itm_report/components/systems_table.js`
+**Reference Implementation:** `$CODEBASE_PATH/site/client/js/components/itm_report/components/systems_table.js`
 - **Header Slot:** (lines 23-34) - `v-slot:header-components` template usage
 - **Use When:** Mixed component types (buttons + dropdowns) or complex header layouts needed
 
 #### Single Row Actions Pattern
 **Reference Implementation:**
-- **Single Actions:** `codebase/site/client/js/components/itm_report/itm_table.js` (lines 53-77)
-- **System Actions:** `codebase/site/client/js/components/itm_report/components/systems_table.js` (lines 50-71)
+- **Single Actions:** `$CODEBASE_PATH/site/client/js/components/itm_report/itm_table.js` (lines 53-77)
+- **System Actions:** `$CODEBASE_PATH/site/client/js/components/itm_report/components/systems_table.js` (lines 50-71)
 - Study action definition patterns, permission checks, and icon usage
 
 #### Bulk Actions Pattern
-**Reference Implementation:** `codebase/site/client/js/components/itm_notification_setting/components/itm_reference_documentation.vue`
+**Reference Implementation:** `$CODEBASE_PATH/site/client/js/components/itm_notification_setting/components/itm_reference_documentation.vue`
 - **Selection Management:** (lines 16, 136, 42) - selectedElements state and setSelectedElements mutation
 - **Bulk Action Disabled State:** (line 50) - `disabled: () => !this.selectedElements.length`
 - **Confirmation Dialog:** (lines 100-110) - Bulk delete with confirmation
@@ -353,8 +353,8 @@ codebase/site/
 
 ### Column Configuration:
 **Reference Implementation:**
-- **Main Table:** `codebase/site/client/js/components/itm_report/itm_table.js` (not explicit columns, uses server config)
-- **Systems Table:** `codebase/site/client/js/components/itm_report/components/systems_table.js` (lines 76-165)
+- **Main Table:** `$CODEBASE_PATH/site/client/js/components/itm_report/itm_table.js` (not explicit columns, uses server config)
+- **Systems Table:** `$CODEBASE_PATH/site/client/js/components/itm_report/components/systems_table.js` (lines 76-165)
 - Study column definitions, cell renderers, and action column patterns
 
 ---
@@ -362,7 +362,7 @@ codebase/site/
 ## File Management Patterns
 
 ### File Upload Modal Pattern
-**Reference Implementation:** `codebase/site/client/js/components/itm_notification_setting/components/itm_add_reference_documentation.vue`
+**Reference Implementation:** `$CODEBASE_PATH/site/client/js/components/itm_notification_setting/components/itm_add_reference_documentation.vue`
 
 #### Key Structure Elements:
 - **FdFileUploader Component:** (lines 263-298) - Different configurations for document vs image
@@ -385,7 +385,7 @@ codebase/site/
 - **removeTempFiles()** - Clean up temporary upload files
 
 #### Form Integration with Files:
-**Study Pattern:** `codebase/site/client/js/components/itm_notification_setting/components/itm_add_reference_documentation.vue`
+**Study Pattern:** `$CODEBASE_PATH/site/client/js/components/itm_notification_setting/components/itm_add_reference_documentation.vue`
 - **Form Fields:** (lines 49-63) - File computation from form attachments array
 - **File State Management:** (lines 75-79) - onChangeValue pattern for form updates
 - **Type Changes:** (lines 94-100) - Clean attachments when changing file types
@@ -412,7 +412,7 @@ codebase/site/
 
 ### Modal Component Structure (`{module_name}_upsert_modal.vue`)
 
-**Reference Implementation:** `codebase/site/client/js/components/itm_report/itm_upsert_modal.vue`
+**Reference Implementation:** `$CODEBASE_PATH/site/client/js/components/itm_report/itm_upsert_modal.vue`
 
 **Key Structure Elements:**
 - FdModal with target selector pattern
@@ -441,7 +441,7 @@ codebase/site/
 
 ### Page-Specific Styles (`pages/_{module_name}.scss`)
 
-**Reference Implementation:** `codebase/site/client/css/pages/_itm_report.scss`
+**Reference Implementation:** `$CODEBASE_PATH/site/client/css/pages/_itm_report.scss`
 
 **Study These Patterns:**
 - **Layout Structure** (lines 1-14): Page container and layout setup with proper height management
@@ -467,7 +467,7 @@ codebase/site/
 10. **Container Scrolling** - Individual components (tables, modals) handle their own scrolling
 
 ### Key Learning Reference:
-**Study:** `codebase/site/client/css/pages/_itm_report.scss` - Notice how minimal the custom styles are. Most functionality comes from UI components themselves.
+**Study:** `$CODEBASE_PATH/site/client/css/pages/_itm_report.scss` - Notice how minimal the custom styles are. Most functionality comes from UI components themselves.
 
 **Philosophy:** The UI library components handle 95% of styling needs. Custom CSS should only address:
 - Module-specific layout adjustments
@@ -481,7 +481,7 @@ codebase/site/
 
 ### View File (`views/{moduleName}/index.php`)
 
-**Reference Implementation:** `codebase/site/views/itmReport/index.php`
+**Reference Implementation:** `$CODEBASE_PATH/site/views/itmReport/index.php`
 
 **Key Structure Elements:**
 - Page title setup with Yii translation
@@ -551,12 +551,12 @@ codebase/site/
 - **Generic Path:** `components/common/sidebar_navigation.vue`
 
 #### 9. **Tabs Navigation**
-- **Location:** `codebase/packages/ui-vue/src/components/tabs-line/tabs-line.vue`, `tabs-buttons/tabs-buttons.vue`
+- **Location:** `$CODEBASE_PATH/packages/ui-vue/src/components/tabs-line/tabs-line.vue`, `tabs-buttons/tabs-buttons.vue`
 - **Reusability:** Responsive tabs with overflow handling and conditional display
 - **Generic Path:** `components/common/tabs_navigation.vue`
 
 ### Generic Component Structure:
-**Reference Implementation:** `codebase/site/client/js/components/itm_report/components/itm_new_address_modal.vue`
+**Reference Implementation:** `$CODEBASE_PATH/site/client/js/components/itm_report/components/itm_new_address_modal.vue`
 - Study component prop definitions (lines 8-31)
 - Event emission patterns (lines 15, 37-51)
 - Template structure with UI-Vue component composition
@@ -568,9 +568,9 @@ codebase/site/
 
 ### Icon Usage:
 **Reference Implementation:** Study icon usage patterns in:
-- `codebase/site/client/js/components/itm_report/itm_table.js` (lines 55-67)
-- `codebase/site/client/js/components/itm_report/itm_report_header.js` (lines 26-31)
-- `codebase/packages/ui-vue/src/components/index.js` - Check available icons in UI-Vue library
+- `$CODEBASE_PATH/site/client/js/components/itm_report/itm_table.js` (lines 55-67)
+- `$CODEBASE_PATH/site/client/js/components/itm_report/itm_report_header.js` (lines 26-31)
+- `$CODEBASE_PATH/packages/ui-vue/src/components/index.js` - Check available icons in UI-Vue library
 
 **Common Icons:** plus, pen-to-square, eye, trash-can, xmark, check, arrow-left, arrow-right, search, filter
 **Fallback:** Use 'plus' if specific icon not available
@@ -590,13 +590,13 @@ codebase/site/
 
 ### Responsive Design:
 **Reference Implementation:** Study responsive patterns in:
-- `codebase/site/client/js/components/itm_report/itm_report_header.js` (lines 37-63): Breakpoint usage
+- `$CODEBASE_PATH/site/client/js/components/itm_report/itm_report_header.js` (lines 37-63): Breakpoint usage
 - `site/client/js/store/itm_report.js` (lines 307-318): Responsive getters
 - Look for breakpoints import, containerWidth usage, and responsive computed properties
 
 ### Performance Optimization:
 **Reference Implementation:** Study performance patterns in:
-- `codebase/site/client/js/components/itm_report/itm_report_header.js` (lines 51-56): Debounced resize handling
+- `$CODEBASE_PATH/site/client/js/components/itm_report/itm_report_header.js` (lines 51-56): Debounced resize handling
 - Look for debounce import, event listener management, and cleanup in beforeDestroy
 
 ### Testing & Accessibility:
@@ -605,8 +605,8 @@ codebase/site/
 **All interactive components MUST have test-id or data-test-id attributes based on the prop name**
 
 **Reference Implementation:** Study existing test-id patterns in:
-- `codebase/site/client/js/components/itm_notification_setting/itm_notification_setting_section_menu.vue` (lines 23, 32, 41, 49, 58)
-- `codebase/packages/ui-vue/src/components/tabs-line/tabs-line.vue` (line 153) - `v-bind:test-id="option.testId"`
+- `$CODEBASE_PATH/site/client/js/components/itm_notification_setting/itm_notification_setting_section_menu.vue` (lines 23, 32, 41, 49, 58)
+- `$CODEBASE_PATH/packages/ui-vue/src/components/tabs-line/tabs-line.vue` (line 153) - `v-bind:test-id="option.testId"`
 - Look for `testId` prop usage in menu items, tabs, and interactive elements
 
 #### Interactive Components Requiring Test IDs:
@@ -695,9 +695,9 @@ This PRP file should be used as the standard guide for all new UI module develop
 **Primary Reference Files:**
 1. **`site/client/js/itm_report.js`** - Main component structure and Vue setup
 2. **`site/client/js/store/itm_report.js`** - Comprehensive store patterns and state management
-3. **`codebase/site/client/js/components/itm_report/itm_upsert_modal.vue`** - Modal component composition
-4. **`codebase/site/views/itmReport/index.php`** - PHP view integration and asset management
-5. **`codebase/site/client/css/pages/_itm_report.scss`** - Minimal CSS override philosophy
+3. **`$CODEBASE_PATH/site/client/js/components/itm_report/itm_upsert_modal.vue`** - Modal component composition
+4. **`$CODEBASE_PATH/site/views/itmReport/index.php`** - PHP view integration and asset management
+5. **`$CODEBASE_PATH/site/client/css/pages/_itm_report.scss`** - Minimal CSS override philosophy
 
 ### Development Philosophy
 
