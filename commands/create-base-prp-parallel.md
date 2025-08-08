@@ -58,7 +58,7 @@ Research only - no test implementation. Use codebase analysis and web search. Re
 ```
 Task: Documentation Context Research
 Prompt: Research documentation and context resources for "$ARGUMENTS". Gather:
-- Check PRPs/ai_docs/ for relevant documentation files
+- Check ai_docs/ for relevant documentation files
 - Configuration examples and setup patterns
 - Environment and dependency requirements
 - Known issues and workarounds documented
@@ -74,7 +74,7 @@ Once all agents complete their research, synthesize the findings and generate a 
 
 ### PRP Template Integration
 
-Using tmp/prps/templates/prp_base.md as the foundation, integrate the research findings:
+Using templates/prp_base.md as the foundation, integrate the research findings:
 
 #### Critical Context Integration
 From the research agents, include:
@@ -117,7 +117,7 @@ Generate a complete PRP including:
 ### Documentation & References
 - url: [Specific URLs from external research]
 - file: [Specific file paths from codebase analysis]
-- docfile: [Relevant PRPs/ai_docs/ files]
+- docfile: [Relevant ai_docs/ files]
 
 ### Current Codebase Context
 [Tree structure and relevant files]
@@ -183,7 +183,7 @@ Before finalizing the PRP, ensure:
 
 ## Output
 
-Save the comprehensive PRP as: `tmp/prps/features/{feature-name}-parallel.md`
+Save the comprehensive PRP as: `features/{feature-name}-parallel.md`
 
 ## Success Metrics
 

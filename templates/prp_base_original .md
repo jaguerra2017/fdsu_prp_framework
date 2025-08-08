@@ -50,13 +50,13 @@ Template optimized for AI agents to implement features with sufficient context a
   section: [Specific section about common pitfalls]
   critical: [Key insight that prevents common errors]
 
-- docfile: [PRPs/ai_docs/file.md]
+- docfile: [ai_docs/file.md]
   why: [docs that the user has pasted in to the project]
 
 ```
 
 ### Code Patterns
-- **CRITICAL to use `prps/patterns` as context since contains required code patterns, standards and implementation guidance**
+- **CRITICAL to use `code_patterns` as context since contains required code patterns, standards and implementation guidance**
 
 ## Implementation Blueprint
 
@@ -133,7 +133,7 @@ CONFIG:
 # Expected: No errors. If errors, READ the error and fix.
 ```
 ### Level 5
-### IMPLEMENT AUTOMATED TESTS USING `tmp/prps/development/qa_automated_tests-prp.md` TO VALIDATE IN WEBSITE
+### IMPLEMENT AUTOMATED TESTS USING `development/qa_automated_tests-prp.md` TO VALIDATE IN WEBSITE
 
 ## Final validation Checklist
 - [ ] No linting errors

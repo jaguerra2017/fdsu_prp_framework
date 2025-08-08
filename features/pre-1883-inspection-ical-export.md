@@ -135,7 +135,7 @@ Create complete iCal export system for fire inspections including:
 ***PREVENT CONTEXT FAILURES: Load ONLY what PRP specifies***
 
 **MANDATORY LOADING (ALWAYS):**
-- `tmp/prps/patterns/` - Only sections relevant to current task
+- `code_patterns/` - Only sections relevant to current task
 
 ### 🔬 CONTEXT ENGINEERING VALIDATION (RESEARCH-BACKED)
 ***Prevent context failures through selective loading***
@@ -345,7 +345,7 @@ PERMISSIONS:
 ### Level 5: Automated Testing (MANDATORY - NO EXCEPTIONS)
 ```markdown
 # 🚨 CRITICAL: Load testing context and implement
-# AI MUST read: tmp/prps/development/qa_automated_tests-prp.md
+# AI MUST read: development/qa_automated_tests-prp.md
 # Expected: All feature tests pass, design screenshots match Figma
 ```
 **STOP CONDITION:** No feature marked complete without automated test validation

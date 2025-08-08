@@ -84,7 +84,7 @@ Template optimized for AI agents to implement features with sufficient context a
   section: [Specific section about common pitfalls]
   critical: [Key insight that prevents common errors]
 
-- docfile: [PRPs/ai_docs/file.md]
+- docfile: [ai_docs/file.md]
   why: [docs that the user has pasted in to the project]
 
 ```
@@ -93,7 +93,7 @@ Template optimized for AI agents to implement features with sufficient context a
 ***PREVENT CONTEXT FAILURES: Load ONLY what PRP specifies***
 
 **MANDATORY LOADING (ALWAYS):**
-- `tmp/prps/code_patterns/` - Only sections relevant to current task
+- `code_patterns/` - Only sections relevant to current task
 
 ### 🔬 CONTEXT ENGINEERING VALIDATION (RESEARCH-BACKED)
 ***Prevent context failures through selective loading***
@@ -184,7 +184,7 @@ CONFIG:
 ### Level 5: Automated Testing (MANDATORY - NO EXCEPTIONS)
 ```markdown
 # 🚨 CRITICAL: Load testing context and implement
-# AI MUST read: tmp/prps/development/qa_automated_tests-prp.md
+# AI MUST read: development/qa_automated_tests-prp.md
 # Expected: All feature tests pass, design screenshots match Figma
 ```
 **STOP CONDITION:** No feature marked complete without automated test validation
@@ -193,7 +193,7 @@ CONFIG:
 
 ### Context Management Validation:
 - [ ] **Context Loaded Correctly:** Only relevant PRP modules loaded (no context confusion)
-- [ ] **Patterns Followed:** Implementation matches `tmp/prps/patterns/` standards exactly
+- [ ] **Patterns Followed:** Implementation matches `code_patterns/` standards exactly
 - [ ] **No Context Poisoning:** All information sources verified and accurate
 
 ### Code Quality Validation:
