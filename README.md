@@ -1,7 +1,8 @@
 # PRP Framework - Product Requirement Prompts for AI-Driven Development
 
 [![GitHub](https://img.shields.io/badge/GitHub-jaguerra2017%2Ffdsu__prp__framework-blue)](https://github.com/jaguerra2017/fdsu_prp_framework)
-[![License](https://img.shields.io/badge/License-Private-red)]()
+[![License](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
+[![Inspired by](https://img.shields.io/badge/Inspired%20by-Wirasm%2FPRPs--agentic--eng-orange)](https://github.com/Wirasm/PRPs-agentic-eng)
 
 > **PRP = PRD (Product Requirement Document) + Curated Codebase Intelligence + Agent Runbook**
 
@@ -218,12 +219,25 @@ git submodule update --init --recursive
 - **Features**: Active feature development
 - **PRDs**: Product requirement documents
 
+## 🙏 **Acknowledgments**
+
+This PRP Framework is inspired by and builds upon the excellent work by **[@Wirasm](https://github.com/Wirasm)** in the [PRPs-agentic-eng](https://github.com/Wirasm/PRPs-agentic-eng) repository. The core PRP methodology and many foundational concepts originated from Wirasm's pioneering work in agentic engineering.
+
+### Key Inspirations:
+- **PRP Methodology**: Core concept of Product Requirement Prompts
+- **Context Engineering**: Comprehensive context loading strategies  
+- **Validation Loops**: Multi-level validation approach
+- **Claude Integration**: Command structure and workflow patterns
+
+**Original Creator**: [@Wirasm](https://github.com/Wirasm) - [PRPs-agentic-eng](https://github.com/Wirasm/PRPs-agentic-eng)  
+**Support Original Work**: [Buy Wirasm a coffee](https://coff.ee/wirasm) ☕
+
 ## 🔒 **Security & Privacy**
 
-- **Private Repository**: Contains proprietary FDSU patterns
-- **Submodule Access**: Requires FDSU codebase permissions
-- **Git Ignore**: `.claude/` folder excluded from version control
-- **Access Control**: Team-based development workflow
+- **Public Repository**: Open source with MIT license
+- **Submodule Access**: Requires FDSU codebase permissions (private)
+- **Git Ignore**: `.claude/` folder excluded from version control  
+- **Access Control**: Team-based development workflow for proprietary components
 
 ## 📞 **Support & Contributing**
 
@@ -249,5 +263,15 @@ git submodule update --init --recursive
 
 ---
 
+## 📄 **License**
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+**Attribution**: This framework is inspired by [@Wirasm's PRPs-agentic-eng](https://github.com/Wirasm/PRPs-agentic-eng) and builds upon their foundational PRP methodology.
+
+---
+
 **Built for First Due by the Development Team**  
 *Enabling AI-driven development with comprehensive context and validation*
+
+**Original PRP Methodology**: [@Wirasm](https://github.com/Wirasm) - [PRPs-agentic-eng](https://github.com/Wirasm/PRPs-agentic-eng)
