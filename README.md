@@ -40,6 +40,7 @@ prps/
 ├── 📄 templates/          # Base PRP templates
 ├── 📖 README-claude.md    # Claude CLI setup guide
 ├── 📖 README-cursor.md    # Cursor IDE setup guide
+├── .claude/               # Claude Code commands (git-ignored)
 └── config.env.example    # Environment configuration template
 ```
 
