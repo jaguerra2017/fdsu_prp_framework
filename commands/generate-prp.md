@@ -22,7 +22,10 @@ The AI agent only gets the context you are appending to the PRP and training dat
 
 1. **MCP Gathering (REQUIRED - EXECUTE IMMEDIATELY)**
    - ✅ **JIRA TICKET**: If PRD contains Jira URL → MUST connect through Atlassian MCP
-   - ✅ **FIGMA DESIGN**: If PRD contains Figma URL → MUST connect through Figma MCP  
+   - ✅ **FIGMA DESIGN**: If PRD contains Figma URL → MUST connect through Figma MCP
+     - **🔴 CRITICAL FIGMA INSTRUCTION**: ALWAYS combine `get_image` and `get_code_connect_map` tools
+     - Execute both tools for every Figma node to capture visual + component mapping
+     - This ensures complete design-to-code context for implementation
    - ✅ **GATHER ALL INFO**: Extract requirements, acceptance criteria, design specs
    - ⚠️ **VALIDATION**: Confirm MCP data gathered before proceeding to Step 2
    
