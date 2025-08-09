@@ -2,16 +2,31 @@
 
 ## Feature file: $ARGUMENTS
 
-Generate a complete PRP for general feature implementation with thorough research. Ensure context is passed to the AI agent to enable self-validation and iterative refinement. Read the feature file first to understand what needs to be created, how the examples provided help, and any other considerations.
+Generate a complete PRP for general feature implementation with thorough research. Ensure context is passed to the AI agent to enable self-validation and iterative refinement. 
+
+## 🔴 PRE-FLIGHT CHECKLIST (EXECUTE IN ORDER)
+1. ☐ Read the feature file FIRST
+2. ☐ Check for MCP URLs (Jira/Figma) in the PRD
+3. ☐ If MCPs exist → GATHER DATA via MCP tools IMMEDIATELY
+4. ☐ Only proceed to codebase research AFTER MCP data is gathered
 
 The AI agent only gets the context you are appending to the PRP and training data. Assuma the AI agent has access to the codebase and the same knowledge cutoff as you, so its important that your research findings are included or referenced in the PRP. The Agent has Websearch capabilities, so pass urls to documentation and examples.
 
 **CRITICAL:** Using `$CODEBASE_PATH` environment variable as the referenced code path
 
 ## Research Process
-1. **MCP Gathering**
-   - If provided figma design URLs then connect trough available Figma MCP to get image and code connect map
-   - If provided jira ticket URL then connect trough Attlassian MCP and gather all info for the task
+
+### 🚨 MANDATORY STEP 1: MCP GATHERING (DO NOT SKIP)
+**CRITICAL: This step MUST be completed BEFORE any other research**
+**CHECK THE PRD FOR MCP URLS AND EXECUTE:**
+
+1. **MCP Gathering (REQUIRED - EXECUTE IMMEDIATELY)**
+   - ✅ **JIRA TICKET**: If PRD contains Jira URL → MUST connect through Atlassian MCP
+   - ✅ **FIGMA DESIGN**: If PRD contains Figma URL → MUST connect through Figma MCP  
+   - ✅ **GATHER ALL INFO**: Extract requirements, acceptance criteria, design specs
+   - ⚠️ **VALIDATION**: Confirm MCP data gathered before proceeding to Step 2
+   
+   **STOP HERE if MCPs are mentioned but not gathered - DO NOT CONTINUE**
 
 2. **Codebase Analysis**
    - Search for similar features/patterns in the codebase
