@@ -24,6 +24,8 @@ The AI agent only gets the context you are appending to the PRP and training dat
    - ✅ **JIRA TICKET**: If PRD contains Jira URL → MUST connect through Atlassian MCP
    - ✅ **FIGMA DESIGN**: If PRD contains Figma URL → MUST connect through Figma MCP
      - **🔴 CRITICAL FIGMA INSTRUCTION**: ALWAYS combine `get_image` and `get_code_connect_map` tools
+     - **🔴 CRITICAL FIGMA INSTRUCTION**: ALWAYS use "vue" as clientFrameworks parameter for `get_code_connect_map` tool
+     - **🔴 EXAMPLE**: `get_code_connect_map(nodeId: "5717-9986", clientFrameworks: "vue", clientLanguages: "javascript,php")`
      - Execute both tools for every Figma node to capture visual + component mapping
      - This ensures complete design-to-code context for implementation
    - ✅ **GATHER ALL INFO**: Extract requirements, acceptance criteria, design specs
