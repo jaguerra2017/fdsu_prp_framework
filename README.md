@@ -8,8 +8,6 @@
 
 A comprehensive framework designed to enable AI agents to ship production-ready code on the first pass through context-rich prompts and validation loops.
 
-**🏢 FirstDue-Aligned Framework** | **👨‍💻 Author: [Ariel Guerra](https://github.com/jaguerra2017)**
-
 ## 🤖 **Choose Your AI Tool**
 
 The PRP Framework works with AI coding tools that can understand context and execute commands. Choose your preferred setup:
