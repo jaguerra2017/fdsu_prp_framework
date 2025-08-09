@@ -8,6 +8,17 @@
 
 A comprehensive framework designed to enable AI agents to ship production-ready code on the first pass through context-rich prompts and validation loops.
 
+## 🤖 **Choose Your AI Tool**
+
+The PRP Framework works with AI coding tools that can understand context and execute commands. Choose your preferred setup:
+
+| AI Tool | Best For | Setup Guide | Key Features |
+|---------|----------|-------------|--------------|
+| **🔮 Claude CLI** | Maximum features & MCP integration | **[📖 README-claude.md](README-claude.md)** | Real-time design/ticket access, automated testing |
+| **🎯 Cursor IDE** | Integrated development experience | **[📖 README-cursor.md](README-cursor.md)** | Built-in Claude, file editing, MCP support |
+
+> **💡 Quick Start**: Click on your preferred AI tool's setup guide above to get started immediately!
+
 ## 🎯 **Core Concept**
 
 The PRP Framework transforms traditional development workflows by providing AI agents with:
@@ -27,285 +38,53 @@ prps/
 ├── ⭐ features/           # Feature implementation PRPs
 ├── 📝 prds/              # Product Requirement Documents
 ├── 📄 templates/          # Base PRP templates
+├── 📖 README-claude.md    # Claude CLI setup guide
+├── 📖 README-cursor.md    # Cursor IDE setup guide
 └── config.env.example    # Environment configuration template
 ```
 
 ## 🚀 **Quick Start**
 
-### Prerequisites
-- Git
-- Node.js and npm (for development)
-- **Claude CLI** installed (`npm install -g @anthropic-ai/claude-cli`)
-- Access to target codebase (any repository you want to analyze)
-- **Required MCP Servers** (see MCP Setup below)
+### Choose Your Setup Path
 
-### Installation
+**For the fastest setup**, choose your preferred AI tool and follow its specific guide:
+
+- **🔮 Claude CLI Users**: Follow **[README-claude.md](README-claude.md)** for full MCP integration
+- **🎯 Cursor IDE Users**: Follow **[README-cursor.md](README-cursor.md)** for integrated development with MCP support
+
+### Universal Setup (All Tools)
+
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/jaguerra2017/fdsu_prp_framework.git
 cd fdsu_prp_framework/prps
 
-# Configure your codebase path
+# 2. Configure your codebase path
 cp config.env.example config.env
 # Edit config.env and set CODEBASE_PATH=/path/to/your/codebase
 
-# Load environment and verify setup
+# 3. Load environment and verify setup
 source config.env
 ls -la $CODEBASE_PATH  # Should show your codebase files
+
+# 4. Follow your AI tool's specific setup guide for advanced features
 ```
 
-## 🔌 **MCP Setup (Required)**
+## 📝 **How Each Tool Works**
 
-The PRP Framework relies on **Model Context Protocol (MCP)** servers for critical functionality. These servers enable Claude to interact with external tools and services directly.
-
-### **🎯 Critical MCP Servers**
-
-The following MCP servers are **essential** for the PRP Framework:
-
-| MCP Server | Purpose | Status Check | Authentication |
-|------------|---------|--------------|----------------|
-| **🎨 Figma** | Design integration, component mapping | Local server required | Desktop app + Dev Mode |
-| **📋 Atlassian** | JIRA tickets, Confluence docs | Cloud service | OAuth 2.0 |
-| **🎭 Playwright** | Automated testing, validation | NPM package | None required |
-
-### **⚡ Quick MCP Setup**
-
-Run these commands in your terminal to set up all required MCP servers:
-
+### **Claude CLI**
 ```bash
-# 1. Install Claude CLI (if not already installed)
-npm install -g @anthropic-ai/claude-cli
-
-# 2. Add Figma MCP Server (requires Figma Desktop with Dev Mode)
-claude mcp add --transport sse figma http://127.0.0.1:3845/sse
-
-# 3. Add Atlassian MCP Server (for JIRA/Confluence integration)
-claude mcp add --transport sse atlassian https://mcp.atlassian.com/v1/sse
-
-# 4. Add Playwright MCP Server (for automated testing)
-claude mcp add playwright npx @executeautomation/playwright-mcp-server
-
-# 5. Verify all servers are configured
-claude mcp list
-```
-
-### **🔧 Detailed Setup Instructions**
-
-#### **1. 🎨 Figma MCP Server**
-
-**Purpose**: Access Figma designs, extract components, and generate code-connect mappings.
-
-**Prerequisites**:
-- Figma Desktop app installed
-- Dev Mode enabled in your Figma account
-- Local Figma MCP server running
-
-**Setup Steps**:
-```bash
-# Add Figma MCP server
-claude mcp add --transport sse figma http://127.0.0.1:3845/sse
-
-# Verify connection (should show ✓ Connected)
-claude mcp list
-```
-
-**Expected Status**: `✓ Connected` (if Figma Desktop is running with Dev Mode)
-
-**Troubleshooting**:
-- Ensure Figma Desktop app is running
-- Check that Dev Mode is enabled in your Figma workspace
-- Verify the local server is accessible at port 3845
-
-#### **2. 📋 Atlassian MCP Server**
-
-**Purpose**: Access JIRA tickets, Confluence documentation for context gathering.
-
-**Prerequisites**:
-- Atlassian Cloud account (firstduedev.atlassian.net)
-- Valid Atlassian credentials
-
-**Setup Steps**:
-```bash
-# Add Atlassian MCP server using official SSE transport
-claude mcp add --transport sse atlassian https://mcp.atlassian.com/v1/sse
-
-# Check status (should show ⚠ Needs authentication)
-claude mcp list
-```
-
-**Authentication** (OAuth 2.0):
-```bash
-# Start Claude CLI and authenticate
 claude
-
-# In Claude CLI, run the MCP authentication command
-> /mcp
-
-# Follow the browser prompts to login to your Atlassian account
-# After successful authentication, server status will show ✓ Connected
+> "Apply commands/generate-prp.md to create a PRP for [feature]"
 ```
 
-**Expected Status**: `✓ Connected` (after OAuth authentication)
-
-**Usage Examples**:
-```bash
-# In Claude CLI, you can now ask:
-> "Analyze the requirements in JIRA ticket PRE-1747"
-> "What are the latest updates in Confluence page XYZ?"
-> "Create a summary of all open tickets assigned to me"
+### **Cursor IDE** 
+```
+In Cursor Chat (Cmd/Ctrl + K):
+"Apply @commands/generate-prp.md to create a PRP for [feature] using $CODEBASE_PATH"
 ```
 
-#### **3. 🎭 Playwright MCP Server**
-
-**Purpose**: Automated testing, browser automation, validation scripts.
-
-**Prerequisites**:
-- Node.js and npm installed
-
-**Setup Steps**:
-```bash
-# Add Playwright MCP server
-claude mcp add playwright npx @executeautomation/playwright-mcp-server
-
-# Verify installation
-claude mcp list
-```
-
-**Expected Status**: `✓ Connected`
-
-**Usage Examples**:
-```bash
-# In Claude CLI, you can now ask:
-> "Run automated tests on the login flow"
-> "Take screenshots of the dashboard for different screen sizes"
-> "Validate form submissions and error handling"
-```
-
-### **📊 Verification Commands**
-
-After setup, verify your MCP configuration:
-
-```bash
-# List all configured MCP servers
-claude mcp list
-
-# Expected output:
-# playwright: npx @executeautomation/playwright-mcp-server - ✓ Connected
-# figma: http://127.0.0.1:3845/sse (SSE) - ✓ Connected  
-# atlassian: https://mcp.atlassian.com/v1/sse (SSE) - ✓ Connected
-
-# Get details for a specific server
-claude mcp get atlassian
-
-# Test MCP functionality in Claude CLI
-claude
-> /mcp  # Shows MCP server status and authentication options
-```
-
-### **🚨 Troubleshooting MCP Issues**
-
-#### **Common Issues and Solutions**
-
-**❌ Figma: "Failed to connect"**
-```bash
-# Solution: Ensure Figma Desktop is running and Dev Mode is enabled
-# Check if the local server is accessible:
-curl http://127.0.0.1:3845/sse
-
-# If port is wrong, update the URL:
-claude mcp remove figma
-claude mcp add --transport sse figma http://127.0.0.1:3845/sse
-```
-
-**❌ Atlassian: "Needs authentication"**
-```bash
-# Solution: Complete OAuth authentication
-claude
-> /mcp
-# Follow browser authentication flow
-```
-
-**❌ Playwright: "Failed to connect"**
-```bash
-# Solution: Reinstall the MCP server
-claude mcp remove playwright
-claude mcp add playwright npx @executeautomation/playwright-mcp-server
-
-# Verify npm can access the package
-npx @executeautomation/playwright-mcp-server --help
-```
-
-#### **MCP Server Management**
-
-```bash
-# Remove a problematic server
-claude mcp remove <server-name>
-
-# Add server with different scope (user/local/project)
-claude mcp add --scope user <server-name> <command>
-
-# Import from existing Claude Desktop configuration
-claude mcp add-from-claude-desktop
-
-# Add server with environment variables
-claude mcp add myserver --env API_KEY=your-key -- npx some-package
-```
-
-### **🔧 Configuration Scopes**
-
-MCP servers can be configured at different scopes:
-
-| Scope | Description | Configuration File | Use Case |
-|-------|-------------|-------------------|----------|
-| **local** | Project-specific (default) | `.claude.json` | Personal dev environment |
-| **project** | Team-shared | `.mcp.json` | Shared project configuration |
-| **user** | Global for all projects | `~/.claude.json` | Personal tools across projects |
-
-**Example with scopes**:
-```bash
-# Add to current project only (default)
-claude mcp add --scope local figma http://127.0.0.1:3845/sse
-
-# Add for entire team (committed to repo)
-claude mcp add --scope project atlassian https://mcp.atlassian.com/v1/sse
-
-# Add for personal use across all projects
-claude mcp add --scope user playwright npx @executeautomation/playwright-mcp-server
-```
-
-### **📚 MCP Integration with PRP Commands**
-
-Once MCP servers are configured, they integrate seamlessly with PRP commands:
-
-**🎯 Figma Integration**:
-- `/generate-prp` automatically connects to Figma designs
-- Extracts component specifications and design tokens
-- Generates code-connect mappings for Vue components
-
-**📋 Atlassian Integration**:
-- Fetches JIRA ticket details for context
-- Accesses Confluence documentation
-- Includes requirements and acceptance criteria in PRPs
-
-**🎭 Playwright Integration**:
-- Validates implemented features automatically
-- Runs end-to-end tests as part of validation loops
-- Generates test reports and screenshots
-
-### **🔐 Security Considerations**
-
-- **Authentication tokens** are stored securely by Claude CLI
-- **Local servers** (Figma) only accessible on localhost
-- **OAuth flows** use official provider authentication
-- **Environment variables** keep sensitive data out of repositories
-
-### **📖 Further Reading**
-
-- [Official Claude MCP Documentation](https://docs.anthropic.com/en/docs/claude-code/mcp)
-- [MCP Server Directory](https://github.com/topics/mcp-server)
-- [Building Custom MCP Servers](https://github.com/anthropics/mcp)
-
----
+That's it! For advanced features like Figma/JIRA integration, see **[README-claude.md](README-claude.md)**.
 
 ### Environment Configuration
 
@@ -510,26 +289,26 @@ Each PRP is scored on:
 
 Target: 8+ on all metrics
 
-## 🤖 **AI Agent Integration**
+## 🤖 **AI Tool Comparison**
 
-### Supported MCPs (Model Context Protocol)
-The PRP Framework requires the following MCP servers to be configured (see **[MCP Setup](#-mcp-setup-required)** section above):
+### **Feature Matrix**
 
-- **🎨 Figma MCP**: Design integration and code connect mapping
-- **📋 Atlassian MCP**: JIRA ticket integration and context gathering  
-- **🎭 Playwright MCP**: Automated testing and validation
+| Feature | Claude CLI | Cursor IDE |
+|---------|------------|------------|
+| **Setup Complexity** | Medium | Easy |
+| **MCP Integration** | ✅ Full | ✅ Available |
+| **File Editing** | ✅ Yes | ✅ Native |
+| **Command Execution** | ✅ Yes | ✅ Terminal |
+| **Real-time Design Access** | ✅ Figma MCP | ✅ Figma MCP |
+| **JIRA Integration** | ✅ Atlassian MCP | ✅ Atlassian MCP |
+| **Automated Testing** | ✅ Playwright MCP | ✅ Playwright MCP |
+| **Context Awareness** | ✅ Excellent | ✅ Excellent |
+| **IDE Integration** | ❌ CLI only | ✅ Native |
 
-### Context Engineering
-- **MCP-powered context**: Direct access to Figma designs, JIRA tickets, and test results
-- **Selective context loading**: Prevents information overload while maintaining completeness
-- **Curated codebase intelligence**: Leverages established patterns and conventions
-- **Research-backed validation**: Uses MCP tools for automated verification loops
+### **Recommended Use Cases**
 
-### Integration Benefits
-- **Real-time design access**: Fetch latest Figma components and specifications
-- **Ticket-driven development**: Automatically include JIRA requirements and acceptance criteria
-- **Automated validation**: Run Playwright tests as part of the PRP validation process
-- **Context synchronization**: Keep PRPs in sync with external tools and documentation
+- **🔮 Choose Claude CLI if**: You want maximum automation and don't mind CLI workflows
+- **🎯 Choose Cursor IDE if**: You prefer integrated development environments with native IDE features
 
 ## 🔄 **Git Workflow**
 
@@ -600,12 +379,19 @@ This PRP Framework is inspired by and builds upon the excellent work by **[@Wira
 
 ## 📚 **Documentation Index**
 
-| Document | Purpose | Lines | Last Updated |
-|----------|---------|-------|--------------|
-| `templates/prp_base.md` | Main PRP template | 203 | Latest |
-| `code_patterns/ui-module-patterns.md` | Vue 2 UI patterns | 717 | Latest |
-| `commands/create-base-prp-parallel.md` | Parallel research | 206 | Latest |
-| `development/onboarding.md` | Developer onboarding | 93 | Latest |
+### **Setup Guides by AI Tool**
+| Guide | Target Tool | Purpose | 
+|-------|-------------|---------|
+| `README-claude.md` | Claude CLI | Full MCP integration setup |
+| `README-cursor.md` | Cursor IDE | Integrated development with MCP support |
+
+### **Core Framework Documentation**
+| Document | Purpose | Lines | 
+|----------|---------|-------|
+| `templates/prp_base.md` | Main PRP template | 203 |
+| `code_patterns/ui-module-patterns.md` | Vue 2 UI patterns | 717 |
+| `commands/create-base-prp-parallel.md` | Parallel research | 206 |
+| `development/onboarding.md` | Developer onboarding | 93 |
 
 ---
 
